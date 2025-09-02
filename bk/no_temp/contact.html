@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./images/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vite-template</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header class="l-header">
+    <div class="l-header__container">
+      <div class="p-header">
+        <div class="p-header__logo-wrapper">
+          <img class="p-header__logo" src="./images/header-logo.svg" alt="ヘッダーロゴ" />
+        </div>
+        <div class="p-header__btn-wrapper">
+          <div class="p-header__btn">
+            <a class="p-header__icon-button" href="">
+              <span><img class="p-header__icon" src="./images/header-icon1.svg" /></span>
+              教室予約 生徒専用
+            </a>
+            <a class="p-header__icon-button" href="">
+              <span><img class="p-header__icon" src="./images/header-icon2.svg" /></span>
+              eラーニング 受講者専用
+            </a>
+          </div>
+          <nav class="p-header__nav">
+            <a class="p-header__nav-link" href="">教室紹介</a>
+            <a class="p-header__nav-link" href="">講座案内</a>
+            <a class="p-header__nav-link" href="">無料体験</a>
+            <a class="p-header__nav-link" href="">アクセス</a>
+            <a class="p-header__nav-link" href="">お問い合わせ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- お問合わせについて -->
+  <section class="l-section">
+    <div class="l-section__container">
+      <div class="p-contact">
+        <div class="p-contact__breadcrumb">
+          <a class="p-contact__breadcrumb-link" href="">
+            ホーム
+            <span><img src="./images/link-icon.svg" alt="右向き矢印" /></span>
+            お問合わせについて
+          </a>
+        </div>
+        <div class="p-contact__heading">
+          <h1 class="p-contact__title">お問合わせについて</h1>
+          <p class="p-contact__description">
+            アご質問やご不明点がございましたら、こちらのお問い合わせフォームからお気軽にご連絡ください。<br />
+            当校のサービスや講座についてのご質問、または受講のご相談がございましたら、<br />
+            こちらのお問い合わせフォームからお気軽にご連絡ください。
+          </p>
+        </div>
+        <form class="p-form">
+          <h2 class="p-form__title">お問合わせフォーム</h2>
+          <!-- 氏名（漢字） -->
+          <div class="p-form__group">
+            <label class="p-form__group-label">
+              <span class="p-form__required">必須</span> 氏名（漢字）
+              <small>※お子様の場合保護者様</small>
+            </label>
+            <div class="p-form__group-name-fields">
+              <input type="text" name="last_name" placeholder="姓" required />
+              <input type="text" name="first_name" placeholder="名" required />
+            </div>
+          </div>
+          <!-- 氏名（カナ） -->
+          <div class="p-form__group">
+            <label class="p-form__group-label"><span class="p-form__required">必須</span> 氏名（カナ）</label>
+            <div class="p-form__group-name-fields">
+              <input type="text" name="last_name_kana" placeholder="セイ" required />
+              <input type="text" name="first_name_kana" placeholder="メイ" required />
+            </div>
+          </div>
+          <!-- 電話番号 -->
+          <div class="p-form__group">
+            <label class="p-form__group-label"><span class="p-form__required">必須</span> 電話番号</label>
+            <input type="tel" name="tel_number" placeholder="電話番号をご入力ください" required />
+          </div>
+          <!-- メールアドレス -->
+          <div class="p-form__group">
+            <label class="p-form__group-label"><span class="p-form__required">必須</span> メールアドレス</label>
+            <input type="email" name="email" placeholder="メールアドレスをご入力ください" required />
+            <input type="email" name="email" placeholder="確認用" required />
+          </div>
+          <!-- お問い合わせ内容 -->
+          <div class="p-form__group">
+            <label class="p-form__group-label">お問い合わせ内容</label>
+            <textarea name="message" rows="5" placeholder="お問い合わせ内容をご入力ください"></textarea>
+          </div>
+          <div class="p-form__consent">
+            <p class="p-form__consent-text">プライバシーポリシーをご確認のうえ、送信をお願いいたします。</p>
+            <label class="p-form__consent-checkbox">
+              <input type="checkbox" name="agree" required /> 上記に同意する
+            </label>
+          </div>
+          <div class="p-form__submit">
+            <button type="submit" class="p-form__submit-btn">送信</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- フッター -->
+  <footer class="l-footer">
+    <div class="l-footer__container">
+      <div class="p-footer">
+        <div class="p-footer__inner">
+          <div class="p-footer__logo-wrapper">
+            <img src="./images/footer-logo.svg" alt="フッターのロゴ" class="p-footer__logo" />
+          </div>
+        </div>
+        <div class="p-footer__end">
+          <p class="p-footer__end-text">
+            Copyright © 株式会社アイルスクール | AisleSchool inc. All rights Reserved.
+          </p>
+          <div class="p-footer__end-links">
+            <a class="p-footer__end-link" href="">会社概要</a>
+            <a class="p-footer__end-link" href="">プライバシーポリシー</a>
+            <a class="p-footer__end-link" href="">サイトポリシー</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

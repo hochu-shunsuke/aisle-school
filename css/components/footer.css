@@ -1,0 +1,126 @@
+/* footer.css: サイト共通フッター用スタイル */
+
+:root {
+  /* ヘッダーと共通の色変数を使用 */
+  --color-white: #fff;
+  --color-primary: #2860A0;
+  --color-dark-gray: #333;
+
+  /* 新たなフッター用変数 */
+  --footer-bg-color: var(--color-white);
+  --footer-text-color: var(--color-dark-gray);
+  --footer-link-color: var(--color-primary);
+  --footer-border-color: #f0f0f0;
+
+  /* スペーシング */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+}
+
+/* フッターのレイアウト */
+.footer {
+  background-color: var(--footer-bg-color);
+  width: 100%;
+  padding: var(--spacing-xl) 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.footer__container {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  position: relative;
+}
+
+.footer__logo-area {
+  position: absolute;
+  top: 0;
+  left: var(--spacing-md);
+  transform: translateY(-50%);
+}
+
+.footer__logo {
+  height: 40px;
+  width: auto;
+}
+
+/* 著作権とリンクエリア */
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: var(--spacing-xl);
+}
+
+.footer__copyright {
+  flex-basis: 50%;
+}
+
+.footer__copyright-text {
+  font-size: 0.85rem;
+  color: var(--footer-text-color);
+  margin: 0;
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-basis: 50%;
+  justify-content: flex-end;
+}
+
+.footer__link-item {
+  color: var(--footer-text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--footer-link-color);
+}
+
+/* モバイル対応 (768px以下) */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .footer__container {
+    text-align: center;
+  }
+
+  .footer__logo-area {
+    position: static;
+    transform: translateY(0);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    border-top: none;
+  }
+  
+  .footer__copyright,
+  .footer__links {
+    flex-basis: auto;
+  }
+
+  .footer__copyright-text {
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+}
