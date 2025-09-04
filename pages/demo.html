@@ -35,26 +35,6 @@
                 </div>
             </section>
             
-            <!-- カードコンポーネント例 -->
-            <section class="l-section">
-                <div class="l-section__container">
-                    <h2 class="u-mb-lg">カードコンポーネント</h2>
-                    <div class="card-demo-area">
-                        <div id="card-container" class="u-mb-md"></div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- フォームコンポーネント例 -->
-            <section class="l-section">
-                <div class="l-section__container">
-                    <h2 class="u-mb-lg">フォームコンポーネント</h2>
-                    <div class="form-demo-area">
-                        <div id="form-container"></div>
-                    </div>
-                </div>
-            </section>
-            
             <!-- ユーティリティクラス例 -->
             <section class="l-section">
                 <div class="l-section__container">
@@ -100,12 +80,6 @@
                 text: 'アウトラインボタン',
                 class: 'c-btn c-btn--outline'
             });
-            
-            // カードコンポーネントのデモ
-            await loadComponent('/components/ui/card.html', '#card-container');
-            
-            // フォームコンポーネントのデモ
-            await loadComponent('/components/ui/form-group.html', '#form-container');
             
             console.log('Demo components loaded');
         });

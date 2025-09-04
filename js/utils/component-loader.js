@@ -78,16 +78,6 @@ class ComponentLoader {
     if (componentPath.includes('button')) {
       this.initializeButtons(element);
     }
-    
-    // フォームコンポーネントの初期化
-    if (componentPath.includes('form')) {
-      this.initializeForms(element);
-    }
-    
-    // カードコンポーネントの初期化
-    if (componentPath.includes('card')) {
-      this.initializeCards(element);
-    }
   }
 
   /**
@@ -101,40 +91,6 @@ class ComponentLoader {
         if (!button.href && button.type !== 'submit') {
           console.log('Button clicked:', button.textContent.trim());
         }
-      });
-    });
-  }
-
-  /**
-   * フォームコンポーネントの初期化
-   */
-  initializeForms(container) {
-    const inputs = container.querySelectorAll('.c-input');
-    inputs.forEach(input => {
-      // フォーカス時の処理
-      input.addEventListener('focus', () => {
-        input.closest('.c-form-group')?.classList.add('is-focused');
-      });
-      
-      input.addEventListener('blur', () => {
-        input.closest('.c-form-group')?.classList.remove('is-focused');
-      });
-    });
-  }
-
-  /**
-   * カードコンポーネントの初期化
-   */
-  initializeCards(container) {
-    const cards = container.querySelectorAll('.c-card');
-    cards.forEach(card => {
-      // ホバーエフェクト
-      card.addEventListener('mouseenter', () => {
-        card.classList.add('is-hovered');
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.classList.remove('is-hovered');
       });
     });
   }
