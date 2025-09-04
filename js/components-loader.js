@@ -25,7 +25,5 @@ const loadComponent = async (path) => {
 
 // 全コンポーネント自動読み込み
 [
-  '/components/ui/button.html',
-  '/components/ui/page-title.html',
-  '/components/ui/page-detail.html'
+  '/components/ui/button.html'
 ].forEach(loadComponent);
