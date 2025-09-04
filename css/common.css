@@ -151,7 +151,7 @@ html, body {
 }
 
 /* レスポンシブ表示制御 */
-@media (max-width: 768px) {
+@media (max-width: 782px) {
   .u-hidden-mobile { display: none !important; }
   
   /* スマホ用レイアウト調整 */
@@ -166,7 +166,7 @@ html, body {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 783px) {
   .u-hidden-desktop { display: none !important; }
 }
 
@@ -197,7 +197,7 @@ html, body {
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 768px) {
+@media (max-width: 782px) {
   .section-title {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-lg);
