@@ -33,6 +33,6 @@
 
 - **その他**
   - `/site-policy/` （サイトポリシー）
-  - `/trial-lesson/` （無料体験のご案内）
+  - `/trial/` （無料体験のご案内）
   - `/contact/` （お問合わせについて）
   - `/privacy-policy/` （プライバシーポリシー）
