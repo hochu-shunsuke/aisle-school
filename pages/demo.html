@@ -16,10 +16,8 @@
             <!-- ヒーローセクション -->
             <section class="l-section">
                 <div class="l-section__container">
-                    <div class="u-text-center u-mb-xl">
-                        <h1>コンポーネントシステム デモ</h1>
-                        <p>AI駆動開発のための再利用可能なコンポーネントライブラリ</p>
-                    </div>
+                    <page-title text="コンポーネントシステム デモ"></page-title>
+                    <page-detail text="AI駆動開発のための再利用可能なコンポーネントライブラリ"></page-detail>
                 </div>
             </section>
             
@@ -27,11 +25,7 @@
             <section class="l-section">
                 <div class="l-section__container">
                     <h2 class="u-mb-lg">ボタンコンポーネント</h2>
-                    <div class="button-demo-area">
-                        <div id="button-primary-container" class="u-mb-md"></div>
-                        <div id="button-secondary-container" class="u-mb-md"></div>
-                        <div id="button-outline-container" class="u-mb-md"></div>
-                    </div>
+                    <button-component>ボタン</button-component>
                 </div>
             </section>
             
@@ -57,32 +51,9 @@
         <div id="footer-placeholder"></div>
     </div>
 
-    <!-- コンポーネントローダーとその他のスクリプト -->
-    <script src="/js/utils/component-loader.js"></script>
+    <!-- コンポーネント自動読み込み -->
     <script src="/js/header.js"></script>
     <script src="/js/footer.js"></script>
-    
-    <script>
-        // コンポーネントのデモ読み込み
-        document.addEventListener('DOMContentLoaded', async () => {
-            // ボタンコンポーネントのデモ
-            await loadComponent('/components/ui/button.html', '#button-primary-container', {
-                text: 'プライマリボタン',
-                class: 'c-btn c-btn--primary'
-            });
-            
-            await loadComponent('/components/ui/button.html', '#button-secondary-container', {
-                text: 'セカンダリボタン', 
-                class: 'c-btn c-btn--secondary'
-            });
-            
-            await loadComponent('/components/ui/button.html', '#button-outline-container', {
-                text: 'アウトラインボタン',
-                class: 'c-btn c-btn--outline'
-            });
-            
-            console.log('Demo components loaded');
-        });
-    </script>
+    <script src="/js/components-loader.js"></script>
 </body>
 </html>

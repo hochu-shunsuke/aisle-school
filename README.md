@@ -1,256 +1,305 @@
-# AI駆動開発の推奨方法（静的サイト）
+# AI駆動開発対応 Web Componentsシステム
 
 ---
 
-## 基本原則
+## 🚀 コンセプト
 
-ラッパをきちんと設定し、コンポーネント化を徹底することでAIが理解しやすく、指示を出しやすい構成にする。
-
-## 1. 構造とスタイルの分離
-
-- HTMLはコンポーネント単位（例：header.html, button.html）で分割
-- CSSはcommon.css, components.cssなどで一元管理
-- コンポーネントごとに固有クラス名（BEMやBlock-Element命名）を使い、スタイル衝突を防ぐ
-
-## 2. JSによる動的生成
-
-- 共通部品はJS関数やテンプレートで生成し、引数（props）で内容を差し替え
-- 例：`createButton(label, href)`のように、テキストやリンク先を動的に渡す
-
-## 3. アセット・パス管理
-
-- 画像・SVG等はpublic/配下に集約し、ルート相対パスで参照
-- 命名規則を統一し、AIで一括管理・生成しやすくする
-
-## 4. 設計ルールの明文化
-
-- クラス命名規則・ディレクトリ構成・CSS設計方針をREADMEやdev.mdに記載
-- AI指示例も残しておくと、今後の自動生成・修正が効率化
-
-## 5. テスト・プレビュー重視
-
-- 開発サーバーで即時プレビュー＆ホットリロード
-- 変更は小さく分割し、都度AIで差分生成・修正
+**Web Components + CSS Design Tokens**を活用した、AI駆動開発に最適化されたコンポーネントシステム。
+1つのHTMLファイルにHTML・CSS・JavaScriptを統合し、真の「再利用可能性」と「開発効率性」を実現。
 
 ---
 
-## 現在の実装状況（2025/09/03時点）
+## 📁 ディレクトリ構造
 
-### ディレクトリ構造
-
-```sh
+```
 /
 ├── css/
-│   ├── common.css           # サイト全体の共通スタイル・Design Token
+│   ├── common.css                  # Design Tokens + ユーティリティクラス
 │   └── components/
-│       ├── header.css       # ヘッダー専用スタイル
-│       └── footer.css       # フッター専用スタイル
+│       ├── header.css             # ヘッダー専用スタイル
+│       └── footer.css             # フッター専用スタイル
 ├── components/
-│   ├── header.html          # ヘッダーコンポーネント
-│   └── footer.html          # フッターコンポーネント
+│   ├── header.html                # レガシーヘッダー
+│   ├── footer.html                # レガシーフッター
+│   └── ui/
+│       ├── button.html            # 統合型ボタンコンポーネント
+│       ├── page-title.html        # ページタイトルコンポーネント
+│       └── page-detail.html       # ページ詳細文コンポーネント
 ├── js/
-│   ├── header.js           # ヘッダー読み込み＆インタラクション
-│   └── footer.js           # フッター読み込み
+│   ├── components-loader.js       # Web Components自動読み込み
+│   ├── header.js                  # ヘッダー制御
+│   └── footer.js                  # フッター制御
 ├── pages/
-│   └── index.html          # メインページ（l-site構造使用）
-└── images/                 # 画像アセット
+│   ├── index.html                 # トップページ
+│   └── demo.html                  # コンポーネントデモページ
+└── images/                        # 画像アセット
 ```
 
-### CSS設計システム
+---
 
-#### 1. Design Token（common.css）
+## 🔧 Web Componentsシステム
+
+### 基本コンセプト
+
+**1つのHTMLファイル = 1つの完全なコンポーネント**
+- HTML構造
+- CSS（Shadow DOM）
+- JavaScript（イベント処理）
+- 全てを統合して真の再利用性を実現
+
+### コンポーネント例
+
+```html
+<!-- components/ui/button.html -->
+<template id="button-template">
+  <style>
+    :host {
+      display: block;
+      margin-bottom: var(--spacing-md, 16px);
+    }
+    button {
+      background-color: var(--color-primary, #2860A0);
+      color: var(--color-white, #fff);
+      border: 2px solid var(--color-primary, #2860A0);
+      /* ... その他のスタイル */
+    }
+  </style>
+  <button type="button">
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+  class ButtonComponent extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      const template = document.getElementById('button-template');
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+    
+    connectedCallback() {
+      const button = this.shadowRoot.querySelector('button');
+      button.addEventListener('click', (e) => {
+        this.dispatchEvent(new CustomEvent('button-click', {
+          bubbles: true,
+          detail: { text: this.textContent.trim() }
+        }));
+      });
+    }
+  }
+  
+  customElements.define('button-component', ButtonComponent);
+</script>
+```
+
+### 使用方法
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- 1行追加するだけで全コンポーネントが利用可能 -->
+  <script src="/js/components-loader.js"></script>
+</head>
+<body>
+  <!-- 即座に使える -->
+  <button-component>送信</button-component>
+  <page-title text="ページタイトル"></page-title>
+  <page-detail text="ページの説明文"></page-detail>
+</body>
+</html>
+```
+
+---
+
+## 🎨 CSS Design Tokensシステム
+
+### Design Tokens（CSS Variables）
 
 ```css
 :root {
   /* レイアウト */
   --site-max-width: 1200px;
   --site-gutter: 24px;
-  --site-gutter-sm: 16px;
+  --section-vertical: 64px;
   
-  /* 色定義 */
+  /* カラーパレット */
   --color-primary: #2860A0;
   --color-white: #fff;
   --color-black: #333;
   --color-gray-border: #e0e0e0;
   
-  /* スペーシング */
+  /* スペーシングシステム */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 40px;
+  
+  /* タイポグラフィ */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
 }
 ```
 
-#### 2. レイアウトシステム（l-prefix）
-
-- `.l-site`: 全ページ共通のFlexboxコンテナ（sticky footer対応）
-- `.l-site__main`: メインコンテンツエリア（flex: 1）
-- `.l-section`: セクション用ラッパー
-- `.l-section__container`: セクション内コンテンツコンテナ
-
-#### 3. コンポーネント設計（BEM）
-
-- `header.html` + `header.css`: レスポンシブヘッダー（ハンバーガーメニュー対応）
-- `footer.html` + `footer.css`: レスポンシブフッター（PC横並び・モバイル縦積み）
-
-### 実装済み機能
-
-✅ ヘッダー：固定レイアウト、レスポンシブ、ハンバーガーメニュー
-✅ フッター：レスポンシブ、中央揃え（モバイル）
-✅ 共通CSS変数によるDesign Token管理
-✅ コンポーネント化されたHTML/CSS/JS構造
-✅ fetch-based動的コンポーネント読み込み
-
----
-
-## AI駆動開発効率化のための拡張提案
-
-### A. CSS設計システムの拡張
-
-#### 1. ユーティリティクラス（u-prefix）
+### レイアウトシステム（l-prefix）
 
 ```css
-/* テキスト関連 */
-.u-text-center { text-align: center; }
-.u-text-left { text-align: left; }
-.u-text-right { text-align: right; }
+.l-site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.l-section {
+  padding: var(--section-vertical) 0;
+}
+
+.l-section__container {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 var(--site-gutter);
+}
+```
+
+### ユーティリティクラス（u-prefix）
+
+```css
+/* テキスト */
+.u-text-center { text-align: center !important; }
+.u-text-left { text-align: left !important; }
+.u-text-right { text-align: right !important; }
 
 /* スペーシング */
-.u-mt-sm { margin-top: var(--spacing-sm); }
-.u-mt-md { margin-top: var(--spacing-md); }
-.u-mb-lg { margin-bottom: var(--spacing-lg); }
-.u-p-xl { padding: var(--spacing-xl); }
+.u-mb-sm { margin-bottom: var(--spacing-sm) !important; }
+.u-mb-md { margin-bottom: var(--spacing-md) !important; }
+.u-mb-lg { margin-bottom: var(--spacing-lg) !important; }
+.u-mb-xl { margin-bottom: var(--spacing-xl) !important; }
 
 /* 表示制御 */
-.u-hidden { display: none; }
-.u-sr-only { /* スクリーンリーダー専用 */ }
-
-/* レスポンシブ表示 */
-.u-hidden-mobile { @media (max-width: 768px) { display: none; } }
-.u-hidden-desktop { @media (min-width: 769px) { display: none; } }
+.u-hidden { display: none !important; }
 ```
-
-#### 2. 汎用コンポーネント（c-prefix）
-
-```css
-/* ボタンシステム */
-.c-btn { /* ベースボタン */ }
-.c-btn--primary { /* プライマリボタン */ }
-.c-btn--secondary { /* セカンダリボタン */ }
-.c-btn--outline { /* アウトラインボタン */ }
-
-/* カードシステム */
-.c-card { /* ベースカード */ }
-.c-card__header { /* カードヘッダー */ }
-.c-card__body { /* カード本文 */ }
-.c-card__footer { /* カードフッター */ }
-
-/* フォームシステム */
-.c-form-group { /* フォームグループ */ }
-.c-input { /* 入力フィールド */ }
-.c-label { /* ラベル */ }
-```
-
-### B. コンポーネントライブラリの拡張
-
-#### 1. 再利用可能コンポーネント
-
-```sh
-components/
-├── ui/
-│   ├── button.html         # 汎用ボタン
-│   ├── card.html          # カードコンポーネント
-│   ├── form-group.html    # フォームグループ
-│   └── breadcrumb.html    # パンくずリスト
-├── layout/
-│   ├── hero.html          # ヒーローセクション
-│   ├── cta.html           # CTA（Call to Action）
-│   └── testimonial.html   # お客様の声
-└── page-specific/
-    ├── course-list.html   # 講座一覧
-    └── contact-form.html  # お問い合わせフォーム
-```
-
-#### 2. JavaScript モジュール化
-
-```sh
-js/
-├── utils/
-│   ├── component-loader.js  # 汎用コンポーネント読み込み
-│   ├── form-validator.js    # フォームバリデーション
-│   └── modal.js            # モーダル制御
-├── components/
-│   ├── header.js
-│   ├── footer.js
-│   ├── slider.js           # スライダー
-│   └── accordion.js        # アコーディオン
-└── pages/
-    ├── index.js            # トップページ専用
-    └── contact.js          # お問い合わせページ専用
-```
-
-### C. AI指示の効率化
-
-#### 1. コンポーネント作成の定型指示
-
-```sh
-「[コンポーネント名]コンポーネントを作成して：
-- HTML: components/ui/[name].html
-- CSS: css/components/[name].css
-- JS: js/components/[name].js
-- BEM命名規則でクラス名
-- レスポンシブ対応
-- CSS変数（common.css）使用」
-```
-
-#### 2. レスポンシブ対応の指示
-
-```sh
-「768px以下でモバイル表示、それ以上でデスクトップ表示
-- --spacing-*でスペーシング統一
-- .u-hidden-mobile/.u-hidden-desktopで表示制御」
-```
-
-### D. 開発フロー最適化
-
-#### 1. コンポーネント単位での開発
-
-1. HTMLで構造作成
-2. CSS（design token使用）でスタイリング
-3. JSで必要に応じてインタラクション追加
-4. レスポンシブ確認
-5. 他ページでの再利用検証
-
-#### 2. Design Systemの段階的拡張
-
-1. common.cssで新しいトークン追加
-2. 汎用クラス（u-*, c-*）で再利用性向上
-3. コンポーネントライブラリの充実
-4. ドキュメント化（このdev.md更新）
 
 ---
 
-## AI開発指示の実例
+## 🤖 AI駆動開発での活用方法
 
-### よく使う指示パターン
+### 1. 新しいコンポーネント作成
 
-1. **新コンポーネント作成**：
-   「講座カードコンポーネントを作成。画像、タイトル、説明文、価格、ボタンを含む。レスポンシブ対応でBEM命名」
+**AI指示例：**
+```
+「カードコンポーネントを作成してください：
+- ファイル：components/ui/card.html
+- 構成：画像、タイトル、説明文、ボタンを含む
+- スタイル：Shadow DOMでカプセル化、CSS変数使用
+- 使用法：<card-component title="タイトル" image="/path/to/image.jpg">説明文</card-component>
+- レスポンシブ対応必須」
+```
 
-2. **既存コンポーネント修正**：
-   「ヘッダーのモバイルメニューをスライドインからフェードインに変更」
+### 2. 既存コンポーネント修正
 
-3. **レイアウト調整**：
-   「フッターロゴを左寄せから中央寄せに変更、スマホでは縦積み中央揃え」
+**AI指示例：**
+```
+「button-componentのスタイルを修正：
+- ホバー時にアニメーション追加
+- フォーカス時のアウトライン強化
+- CSS変数（--color-primary）を使用して統一感維持」
+```
 
-4. **汎用クラス追加**：
-   「margin/paddingの汎用クラス（u-m*, u-p*）をcommon.cssに追加」
+### 3. ページ構築
 
-### 効率的な開発のために
+**AI指示例：**
+```
+「新しいページを作成：
+- l-section + l-section__containerでレイアウト
+- 既存コンポーネント（button-component、page-title）を使用
+- components-loader.jsで自動読み込み」
+```
 
-- 変更は小さい単位で区切る
-- 1つのコンポーネントずつ完成させる
-- CSS変数の活用を必ず指示に含める
-- レスポンシブ対応は最初から考慮
-- BEM命名規則の徹底
+### 4. システム拡張
+
+**AI指示例：**
+```
+「フォームコンポーネントを追加：
+- input-component：バリデーション機能付き
+- select-component：カスタムセレクトボックス
+- components-loader.jsにも自動追加」
+```
+
+---
+
+## ✅ 実装済み機能
+
+- ✅ Web Components基盤システム
+- ✅ CSS Design Tokens（変数システム）
+- ✅ 自動コンポーネント読み込み（components-loader.js）
+- ✅ レスポンシブレイアウトシステム
+- ✅ ユーティリティクラス
+- ✅ Shadow DOMによるスタイルカプセル化
+- ✅ カスタムイベントシステム
+
+---
+
+## 🎯 AI駆動開発の利点
+
+### 1. **真の再利用性**
+- 1つのファイルで完結するコンポーネント
+- どのページでも`<component-name>`で即座に使用可能
+- スタイル競合の心配なし（Shadow DOM）
+
+### 2. **開発効率性**
+- `components-loader.js`で全コンポーネント自動読み込み
+- CSS変数で一元的なデザイン管理
+- AIが理解しやすい明確なファイル構造
+
+### 3. **保守性**
+- コンポーネント単位での修正・拡張
+- Design Tokensによる統一感維持
+- 依存関係のない独立したコンポーネント
+
+### 4. **スケーラビリティ**
+- 新コンポーネント追加時は1ファイル作成＋loader更新のみ
+- レガシーコードとの共存可能
+- 段階的移行をサポート
+
+---
+
+## 🚀 今後の拡張計画
+
+1. **コンポーネントライブラリ拡充**
+   - フォーム系（input, select, textarea）
+   - ナビゲーション系（breadcrumb, pagination）
+   - レイアウト系（grid, flex-container）
+
+2. **ツール整備**
+   - コンポーネント自動生成スクリプト
+   - スタイルガイド自動生成
+   - デザインシステムドキュメント
+
+3. **パフォーマンス最適化**
+   - 遅延読み込み対応
+   - バンドル最適化
+   - キャッシュ戦略
+
+---
+
+## 📖 開発者向けガイド
+
+### コンポーネント作成ルール
+
+1. **ファイル名**: `components/ui/[component-name].html`
+2. **クラス名**: `[ComponentName]Component`
+3. **タグ名**: `[component-name]`
+4. **CSS変数使用**: 必須（Design Tokens活用）
+5. **Shadow DOM**: 必須（スタイルカプセル化）
+6. **イベント**: CustomEventで実装
+
+### 効率的なAI指示のコツ
+
+- 具体的なファイル名・クラス名を指定
+- CSS変数の使用を明記
+- レスポンシブ対応を必須条件として記載
+- 既存のコンポーネントとの統一感を重視
+- 段階的な実装（HTML→CSS→JS）を指示
