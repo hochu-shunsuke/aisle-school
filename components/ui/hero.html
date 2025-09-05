@@ -1,0 +1,100 @@
+<!-- ヒーローセクション -->
+<section class="hero" id="hero-section">
+  <div class="hero__indicators" id="hero-indicators"></div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl, 40px);
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero__bg.active {
+  opacity: 1;
+}
+
+.hero__indicators {
+  position: absolute;
+  bottom: var(--spacing-md, 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-sm, 8px);
+  z-index: 3;
+}
+
+.hero__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero__indicator.active {
+  background: var(--color-white, #fff);
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .hero {
+    border-radius: 4px;
+    margin-bottom: var(--spacing-lg, 24px);
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .hero {
+    border-radius: 0;
+    margin: 0;
+    margin-bottom: var(--spacing-md, 16px);
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .hero__indicators {
+    bottom: var(--spacing-sm, 8px);
+    gap: 6px;
+  }
+  
+  .hero__indicator {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* 極小スマホ対応 */
+@media (max-width: 480px) {
+  .hero {
+    margin-bottom: var(--spacing-sm, 8px);
+  }
+  
+  .hero__indicators {
+    bottom: 6px;
+    gap: 4px;
+  }
+  
+  .hero__indicator {
+    width: 5px;
+    height: 5px;
+  }
+}
+</style>

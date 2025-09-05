@@ -64,7 +64,7 @@
 /* PC用アクションボタンとナビゲーション */
 .header__actions--desktop {
   position: absolute;
-  top: var(--spacing-md);
+  top: var(--spacing-sm);
   right: var(--spacing-xl);
   display: flex;
   flex-direction: row;
@@ -132,7 +132,7 @@
 }
 
 /* レスポンシブ: モバイル用ハンバーガーメニューとメニュー */
-@media (max-width: 950px) {
+@media (max-width: 999px) {
   .header__container {
     min-height: var(--header-height-mobile);
     padding: var(--spacing-md) var(--spacing-lg);
