@@ -192,6 +192,7 @@
     padding-top: 80px;
   }
   
+  /* オーバーレイ: 非表示時はクリックを透過させる（pointer-events:none） */
   .header__overlay {
     display: block;
     position: fixed;
@@ -204,14 +205,15 @@
     z-index: 999;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* 重要: 閉じているときはクリックを通す */
   }
 
   .header__nav-menu.is-open {
     right: 0;
   }
-
   .header__overlay.is-open {
     opacity: 1;
+    pointer-events: auto; /* オープン時はオーバーレイでクリックを受け付ける */
   }
 
   .header__nav-list {
