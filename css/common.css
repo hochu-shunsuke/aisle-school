@@ -183,6 +183,17 @@ html, body {
   width: 100%;
 }
 
+/* セクションサブタイトル */
+.section-subtitle {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+  width: 100%;
+}
+
 /* セクション詳細 */
 .section-detail {
   color: var(--color-black);
