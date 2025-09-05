@@ -17,8 +17,7 @@
 
 - **講座一覧・講座案内**
   - `/course/`
-  - `/course/pc-for-adults/` （パソコン教室 - 社会人向け）
-  - `/course/shikaku-exam-venue/` （資格試験会場 - 社会人向け）
+  - `/course/pc/` （パソコン教室 - 社会人向け）
   - `/course/engineer-training/` （技術者育成事業 - 社会人向け）
   - `/course/minecraft/` （マインクラフト）
   - `/course/it-passport/` （ITパスポート - 社会人向け）
@@ -27,7 +26,6 @@
   - `/course/scratch/` （Scratch）
   - `/course/unity/` （Unity）
   - `/course/e-learning/` （eラーニング - 社会人向け）
-  - `/course/school-info/` （講座案内 - 教室紹介）
   - `/course/joho1-2/` （情報Ⅰ、Ⅱ）
   - `/course/others/` （その他の講座）
 
