@@ -16,7 +16,6 @@ async function loadHero() {
 
 // ヒーローのスライドショー機能を初期化
 function initializeHero() {
-  // デモ用の画像URLs（実際の画像が用意されるまでのプレースホルダー）
   const images = [
     "/images/index/index-hero-1.png",
     "/images/index/index-hero-2.png",
