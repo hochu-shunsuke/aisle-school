@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/components/header.css">
     <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/course-card.css">
 </head>
 <body>
     <div class="l-site">
@@ -21,8 +22,38 @@
 
             <div class="l-section">
                 <div class="l-section__container">
+                    <div class="course-card">
+                        <div class="course-card__image">
+                            <img src="/images/course/minecraft.png" alt="Minecraft講座">
+                        </div>
+                        <div class="course-card__content">
+                            <h3 class="course-card__title">デジタル時代を生き抜く力を！</h3>
+                            <p class="course-card__description">
+                                アイルスクールでは、ITパスポートを学ぶコースを開始する予定です。このコースでは、ITの基本からビジネスや法務に関わる知識まで、幅広く習得できます。仕事の効率を上げ、より良い成果を生み出すために、ITの基礎をしっかりと学び、未来の自分に価値あるスキルを身につけましょう。
+                            </p>
+                            <div class="course-card__topics">
+                                <div class="topic-card">
+                                    <div class="topic-card__header">
+                                        <div class="topic-card__title-area">
+                                            <img src="/images/icon/trophy.png" alt="" class="topic-card__icon">
+                                            <h5 class="topic-card__title">ITパスポートとは</h5>
+                                        </div>
+                                        <span class="topic-card__toggle">▼</span>
+                                    </div>
+                                    <div class="topic-card__detail">
+                                        <p class="topic-card__detail-text">
+                                            Scratchの基本操作を覚えて、スプライト（キャラクター）を自由に動かせるようになります。
+                                            座標の概念や方向指定など、プログラミングの基礎となる考え方を身につけます。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            
 
         </main>
         <div id="footer-placeholder"></div>
@@ -31,5 +62,6 @@
 
     <script src="/js/header.js"></script>
     <script src="/js/footer.js"></script>
+    <script src="/js/course-card.js"></script>
 </body>
 </html>
