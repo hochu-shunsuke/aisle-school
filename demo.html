@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンポーネントシステム - デモページ</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/button.css">
+</head>
+<body>
+    <div class="l-site">
+        <div id="header-placeholder"></div>
+        
+        <main class="l-site__main">
+            <!-- ヒーローセクション -->
+            <section class="l-section">
+                <div class="l-section__container">
+                    <page-title text="コンポーネントシステム デモ"></page-title>
+                    <page-detail text="AI駆動開発のための再利用可能なコンポーネントライブラリ"></page-detail>
+                </div>
+            </section>
+            
+            <!-- ボタンコンポーネント例 -->
+            <section class="l-section">
+                <div class="l-section__container">
+                    <h2 class="section-title">ボタンコンポーネント</h2>
+                    <p class="section-detail">CSS onlyで実装したシンプルなボタンコンポーネント</p>
+                    
+                    <!-- 基本ボタン -->
+                    <h3 class="u-mb-md">基本ボタン</h3>
+                    <div class="btn-container u-mb-lg">
+                        <button class="btn-primary">ボタン</button>
+                        <a href="#" class="btn-primary">リンクボタン</a>
+                    </div>
+                    
+                    <!-- サイズバリエーション -->
+                    <h3 class="u-mb-md">サイズバリエーション</h3>
+                    <div class="btn-container u-mb-lg">
+                        <button class="btn-primary btn-primary--small">小さいボタン</button>
+                        <button class="btn-primary">通常ボタン</button>
+                        <button class="btn-primary btn-primary--large">大きいボタン</button>
+                    </div>
+                    
+                    <!-- 幅いっぱいボタン -->
+                    <h3 class="u-mb-md">幅いっぱいボタン</h3>
+                    <div class="u-mb-lg">
+                        <button class="btn-primary btn-primary--full">幅いっぱいボタン</button>
+                    </div>
+                    
+                    <!-- アイコン付きボタン -->
+                    <h3 class="u-mb-md">アイコン付きボタン</h3>
+                    <div class="btn-container u-mb-lg">
+                        <button class="btn-primary">
+                            <img src="/images/components/header-icon.png" alt="">
+                            アイコン付き
+                        </button>
+                    </div>
+                    
+                    <!-- HTMLコード例 -->
+                    <h3 class="u-mb-md">HTMLコード例</h3>
+                    <div style="background: #f8f9fa; padding: 16px; border-radius: 4px; font-family: monospace; font-size: 0.875rem;">
+                        <div>&lt;!-- 基本ボタン --&gt;</div>
+                        <div>&lt;button class="btn-primary"&gt;ボタン&lt;/button&gt;</div>
+                        <br>
+                        <div>&lt;!-- サイズ指定 --&gt;</div>
+                        <div>&lt;button class="btn-primary btn-primary--small"&gt;小さいボタン&lt;/button&gt;</div>
+                        <br>
+                        <div>&lt;!-- 中央寄せコンテナ --&gt;</div>
+                        <div>&lt;div class="btn-container"&gt;</div>
+                        <div>&nbsp;&nbsp;&lt;button class="btn-primary"&gt;ボタン1&lt;/button&gt;</div>
+                        <div>&nbsp;&nbsp;&lt;button class="btn-primary"&gt;ボタン2&lt;/button&gt;</div>
+                        <div>&lt;/div&gt;</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ユーティリティクラス例 -->
+            <section class="l-section">
+                <div class="l-section__container">
+                    <h2 class="u-mb-lg">ユーティリティクラス例</h2>
+                    <div class="utility-demo">
+                        <div class="u-text-center u-p-lg" style="background: #f0f0f0; margin-bottom: 16px;">
+                            <p>中央揃えテキスト (.u-text-center)</p>
+                        </div>
+                        <div class="u-text-left u-p-md u-mb-md" style="background: #e0e0e0;">
+                            <p>左揃えテキスト (.u-text-left)</p>
+                        </div>
+                        <div class="u-text-right u-p-sm" style="background: #d0d0d0;">
+                            <p>右揃えテキスト (.u-text-right)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- コンポーネント自動読み込み -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+</body>
+</html>
