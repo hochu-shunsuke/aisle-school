@@ -13,7 +13,59 @@
 </head>
 <body>
     <div class="l-site">
-        <div id="header-placeholder"></div>
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo-area">
+                    <a href="index.html" class="header__logo-link">
+                        <img class="header__logo" src="../images/components/logo.png" alt="アイルスクール ロゴ" />
+                    </a>
+                </div>
+                <div class="header__actions header__actions--desktop">
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="教室予約アイコン" />
+                        教室予約 生徒専用
+                    </a>
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="eラーニングアイコン" />
+                        eラーニング 受講者専用
+                    </a>
+                </div>
+                <nav class="header__nav" aria-label="メインナビゲーション">
+                    <ul class="header__nav-list">
+                        <li><a class="header__nav-link" href="../about.html">教室紹介</a></li>
+                        <li><a class="header__nav-link" href="../course.html">講座案内</a></li>
+                        <li><a class="header__nav-link" href="../trial.html">無料体験</a></li>
+                        <li><a class="header__nav-link" href="../access.html">アクセス</a></li>
+                        <li><a class="header__nav-link" href="../contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <button class="header__nav-toggle" aria-label="メニューを開く">
+                    <span class="header__nav-toggle-line"></span>
+                    <span class="header__nav-toggle-line"></span>
+                    <span class="header__nav-toggle-line"></span>
+                </button>
+            </div>
+            <div class="header__nav-menu">
+                <ul class="header__nav-list">
+                    <li><a class="header__nav-link" href="../about.html">教室紹介</a></li>
+                    <li><a class="header__nav-link" href="../course.html">講座案内</a></li>
+                    <li><a class="header__nav-link" href="../trial.html">無料体験</a></li>
+                    <li><a class="header__nav-link" href="../access.html">アクセス</a></li>
+                    <li><a class="header__nav-link" href="../contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__actions header__actions--mobile">
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="教室予約アイコン" />
+                        教室予約 生徒専用
+                    </a>
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="eラーニングアイコン" />
+                        eラーニング 受講者専用
+                    </a>
+                </div>
+            </div>
+            <div class="header__overlay"></div>
+        </header>
         <main class="l-site__main">
 
             <div class="l-section">

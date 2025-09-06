@@ -1,14 +1,9 @@
-// header.js: ヘッダーコンポーネントの読み込み＆ハンバーガーメニュー
+// header.js: ハンバーガーメニュー専用
 
-// ヘッダーコンポーネントの読み込み
-fetch('/components/header.html')
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById('header-placeholder').innerHTML = html;
-    
-    // ヘッダー読み込み後にハンバーガーメニューを初期化
-    initializeHeaderMenu();
-  });
+// DOMContentLoaded後にハンバーガーメニューを初期化
+document.addEventListener('DOMContentLoaded', function() {
+  initializeHeaderMenu();
+});
 
 // ハンバーガーメニューの初期化
 function initializeHeaderMenu() {
