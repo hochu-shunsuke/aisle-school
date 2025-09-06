@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アイルスクール</title>
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/components/header.css">
-    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/form.css">
+    <link rel="stylesheet" href="css/components/button.css">
 </head>
 <body>
     <div class="l-site">
@@ -25,14 +27,149 @@
                 </div>
             </div>
 
-            
+            <div class="l-section">
+                <div class="l-section__container">
+                    <form class="form-section">
+                        <h3 class="form-title">お申し込みフォーム</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="form-required">必須</span>
+                                氏名(漢字)
+                            </label><small>※お子様の場合保護者様</small>
+                            <div class="form-name-group">
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="姓" required>
+                                </div>
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="名" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="form-required">必須</span>
+                                氏名(カナ)
+                            </label>
+                            <div class="form-name-group">
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="セイ" required>
+                                </div>
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="メイ" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="form-required">必須</span>
+                                電話番号
+                            </label>
+                            <input type="tel" class="form-input" placeholder="電話番号をご入力ください" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="form-required">必須</span>
+                                メールアドレス
+                            </label>
+                            <input type="email" class="form-input" placeholder="メールアドレスをご入力ください" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                希望コース
+                            </label>
+                            <input type="text" class="form-input" placeholder="希望コースをご入力ください">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <span class="form-required">必須</span>
+                                第1希望日
+                            </label>
+                            <input type="text" class="form-input" placeholder="第1希望日をご入力ください" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                第2希望日
+                            </label>
+                            <input type="text" class="form-input" placeholder="第2希望日をご入力ください">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                相談内容
+                            </label>
+                            <textarea class="form-textarea" placeholder="相談内容をご記入ください"></textarea>
+                        </div>
+
+
+                        <h3 class="form-title">お子様が体験される場合</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                お子様の氏名(漢字)
+                            </label>
+                            <div class="form-name-group">
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="姓">
+                                </div>
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="名">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                お子様の氏名(カナ)
+                            </label>
+                            <div class="form-name-group">
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="セイ">
+                                </div>
+                                <div class="form-name-item">
+                                    <input type="text" class="form-input" placeholder="メイ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                お子様の生年月日
+                            </label>
+                            <input type="date" class="form-input" placeholder="お子様の生年月日をご入力ください">
+                        </div>
+                        
+                        <div class="form-privacy">
+                            <p class="form-privacy-text">
+                                <a href="/privacy-policy.html" class="form-privacy-link"><strong>プライバシーポリシー</strong></a>をご確認のうえ、送信をお願いいたします。
+                            </p>
+                            
+                            <div class="form-consent">
+                                <input type="checkbox" id="consent" class="form-checkbox" required>
+                                <label for="consent" class="form-consent-label">上記に同意する</label>
+                            </div>
+                        </div>
+                        
+                        <!-- 送信ボタン -->
+                        <div class="btn-container">
+                            <button type="submit" class="btn-primary">送信</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </main>
         <div id="footer-placeholder"></div>
     </div>
 
 
-    <script src="/js/header.js"></script>
-    <script src="/js/footer.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
 </body>
 </html>
