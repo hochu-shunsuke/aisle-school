@@ -17,10 +17,10 @@ async function loadHero() {
 // ヒーローのスライドショー機能を初期化
 function initializeHero() {
   const images = [
-    "/images/index/index-hero-1.png",
-    "/images/index/index-hero-2.png",
-    "/images/index/index-hero-3.png",
-    "/images/index/index-hero-4.png"
+    "images/index/index-hero-1.png",
+    "images/index/index-hero-2.png",
+    "images/index/index-hero-3.png",
+    "images/index/index-hero-4.png"
   ];
   
   const heroSection = document.getElementById('hero-section');
