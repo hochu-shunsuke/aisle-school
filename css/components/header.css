@@ -56,6 +56,12 @@
   align-items: center;
 }
 
+.header__logo-link {
+  display: block;
+  line-height: 0;
+  cursor: pointer;
+}
+
 .header__logo {
   height: var(--header-logo-height-desktop);
   width: auto;

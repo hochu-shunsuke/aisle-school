@@ -13,7 +13,59 @@
 </head>
 <body>
     <div class="l-site">
-        <div id="header-placeholder"></div>
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo-area">
+                    <a href="index.html" class="header__logo-link">
+                        <img class="header__logo" src="../images/components/logo.png" alt="アイルスクール ロゴ" />
+                    </a>
+                </div>
+                <div class="header__actions header__actions--desktop">
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="教室予約アイコン" />
+                        教室予約 生徒専用
+                    </a>
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="eラーニングアイコン" />
+                        eラーニング 受講者専用
+                    </a>
+                </div>
+                <nav class="header__nav" aria-label="メインナビゲーション">
+                    <ul class="header__nav-list">
+                        <li><a class="header__nav-link" href="../about.html">教室紹介</a></li>
+                        <li><a class="header__nav-link" href="../course.html">講座案内</a></li>
+                        <li><a class="header__nav-link" href="../trial.html">無料体験</a></li>
+                        <li><a class="header__nav-link" href="../access.html">アクセス</a></li>
+                        <li><a class="header__nav-link" href="../contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+                <button class="header__nav-toggle" aria-label="メニューを開く">
+                    <span class="header__nav-toggle-line"></span>
+                    <span class="header__nav-toggle-line"></span>
+                    <span class="header__nav-toggle-line"></span>
+                </button>
+            </div>
+            <div class="header__nav-menu">
+                <ul class="header__nav-list">
+                    <li><a class="header__nav-link" href="../about.html">教室紹介</a></li>
+                    <li><a class="header__nav-link" href="../course.html">講座案内</a></li>
+                    <li><a class="header__nav-link" href="../trial.html">無料体験</a></li>
+                    <li><a class="header__nav-link" href="../access.html">アクセス</a></li>
+                    <li><a class="header__nav-link" href="../contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__actions header__actions--mobile">
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="教室予約アイコン" />
+                        教室予約 生徒専用
+                    </a>
+                    <a class="header__action-btn" href="#">
+                        <img class="header__action-icon" src="../images/components/header-icon.png" alt="eラーニングアイコン" />
+                        eラーニング 受講者専用
+                    </a>
+                </div>
+            </div>
+            <div class="header__overlay"></div>
+        </header>
         <main class="l-site__main">
             
             <div class="l-section">
@@ -29,7 +81,7 @@
                 <div class="l-section__container">
                     <div class="course-card">
                         <div class="course-card__image">
-                            <img src="images/course/minecraft.png" alt="Minecraft講座">
+                            <img src="../images/course/minecraft.png" alt="Minecraft講座">
                         </div>
                         <div class="course-card__content">
                             <h3 class="course-card__title">ブロックで作る夢の国</h3>
@@ -40,7 +92,7 @@
                                 <div class="topic-card">
                                     <div class="topic-card__header">
                                         <div class="topic-card__title-area">
-                                            <img src="images/icon/trophy.png" alt="" class="topic-card__icon">
+                                            <img src="../images/icon/trophy.png" alt="" class="topic-card__icon">
                                             <h5 class="topic-card__title">目指せる資格やコンテスト</h5>
                                         </div>
                                         <span class="topic-card__toggle">▼</span>
@@ -56,7 +108,7 @@
                                 <div class="topic-card">
                                     <div class="topic-card__header">
                                         <div class="topic-card__title-area">
-                                            <img src="images/icon/question.png" alt="" class="topic-card__icon">
+                                            <img src="../images/icon/question.png" alt="" class="topic-card__icon">
                                             <h5 class="topic-card__title">マインクラフトとは</h5>
                                         </div>
                                         <span class="topic-card__toggle">▼</span>
@@ -80,7 +132,7 @@
 
                     <div class="process">
                         <div class="process__icon">
-                            <img src="images/icon/step1.png" alt="step1">
+                            <img src="../images/icon/step1.png" alt="step1">
                         </div>
                         <div class="process__content">
                             <div class="process__title">01. 基本操作の説明</div>
@@ -90,13 +142,13 @@
                     
                     <div class="process-next">
                         <div class="process-next__arrow">
-                            <img src="images/icon/arrow.png" alt="次のステップ">
+                            <img src="../images/icon/arrow.png" alt="次のステップ">
                         </div>
                     </div>
                     
                     <div class="process">
                         <div class="process__icon">
-                            <img src="images/icon/step2.png" alt="step2">
+                            <img src="../images/icon/step2.png" alt="step2">
                         </div>
                         <div class="process__content">
                             <div class="process__title">02. 簡単なゲーム作り</div>
@@ -106,13 +158,13 @@
                     
                     <div class="process-next">
                         <div class="process-next__arrow">
-                            <img src="images/icon/arrow.png" alt="次のステップ">
+                            <img src="../images/icon/arrow.png" alt="次のステップ">
                         </div>
                     </div>
                     
                     <div class="process">
                         <div class="process__icon">
-                            <img src="images/icon/step3.png" alt="step3">
+                            <img src="../images/icon/step3.png" alt="step3">
                         </div>
                         <div class="process__content">
                             <div class="process__title">03. ステップアップしてみよう</div>
@@ -122,13 +174,13 @@
 
                     <div class="process-next">
                         <div class="process-next__arrow">
-                            <img src="images/icon/arrow.png" alt="次のステップ">
+                            <img src="../images/icon/arrow.png" alt="次のステップ">
                         </div>
                     </div>
                     
                     <div class="process">
                         <div class="process__icon">
-                            <img src="images/icon/step4.png" alt="step4">
+                            <img src="../images/icon/step4.png" alt="step4">
                         </div>
                         <div class="process__content">
                             <div class="process__title">04. うまく動かないときは？</div>
@@ -138,13 +190,13 @@
 
                     <div class="process-next">
                         <div class="process-next__arrow">
-                            <img src="images/icon/arrow.png" alt="次のステップ">
+                            <img src="../images/icon/arrow.png" alt="次のステップ">
                         </div>
                     </div>
                     
                     <div class="process">
                         <div class="process__icon">
-                            <img src="images/icon/step5.png" alt="step5">
+                            <img src="../images/icon/step5.png" alt="step5">
                         </div>
                         <div class="process__content">
                             <div class="process__title">05. みんなに見せよう！</div>
@@ -158,18 +210,37 @@
                 <div class="l-section__container">
                     <h2 class="section-subtitle">ぜひ無料体験にご参加ください</h2>
                     <div class="btn-container">
-                        <a href="trial.html" class="btn-primary">無料体験実施中</a>
+                        <a href="../trial.html" class="btn-primary">無料体験実施中</a>
                     </div>
                 </div>
             </div>
 
         </main>
-        <div id="footer-placeholder"></div>
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__logo-area">
+                    <img class="footer__logo" src="../images/components/logo.png" alt="フッターのロゴ" />
+                </div>
+
+                <div class="footer__content">
+                    <div class="footer__copyright">
+                        <p class="footer__copyright-text">
+                            Copyright © 株式会社アイルスクール | AisleSchool inc. All rights Reserved.<br>
+                        </p>
+                    </div>
+
+                    <div class="footer__links">
+                        <a class="footer__link-item" href="../company.html">会社概要</a>
+                        <a class="footer__link-item" href="../privacy-policy.html">プライバシーポリシー</a>
+                        <a class="footer__link-item" href="../site-policy.html">サイトポリシー</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
 
     <script src="../js/header.js"></script>
-    <script src="../js/footer.js"></script>
     <script src="../js/course-card.js"></script>
 </body>
 </html>
