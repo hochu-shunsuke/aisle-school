@@ -1,0 +1,187 @@
+/* アクセスページ用のスタイル */
+
+/* アクセスセクション */
+.access-section {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow-base, rgba(0, 0, 0, 0.1));
+  padding: var(--spacing-xl, 40px);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* アクセスタイトル */
+.access-title {
+  font-size: var(--font-size-xl, 1.5rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  margin-bottom: var(--spacing-xl, 40px);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 校舎とマップのコンテナ */
+.access-visual {
+  display: flex;
+  gap: var(--spacing-lg, 24px);
+  margin-bottom: var(--spacing-xl, 40px);
+  align-items: flex-start;
+}
+
+/* 校舎画像エリア */
+.access-image {
+  flex: 1;
+}
+
+.access-image img {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* マップエリア */
+.access-map {
+  flex: 1;
+}
+
+.access-map iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* アクセス情報テーブル */
+.access-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* アクセス情報の各項目 */
+.access-item {
+  display: block;
+  padding: var(--spacing-md, 16px) 0;
+  border-bottom: 1px solid var(--color-gray-border, #e0e0e0);
+}
+
+/* 最後の項目の区切り線を削除 */
+.access-item:last-child {
+  border-bottom: none;
+}
+
+/* 項目ラベル（上側） */
+.access-label {
+  font-size: var(--font-size-sm, 0.9375rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  margin-bottom: var(--spacing-xs, 4px);
+  display: block;
+  line-height: 1.6;
+}
+
+/* 項目内容（下側） */
+.access-value {
+  font-size: var(--font-size-sm, 0.9375rem);
+  color: var(--color-gray-text, #666);
+  line-height: 1.6;
+  display: block;
+}
+
+/* アドレスなど改行が必要な内容 */
+.access-value br {
+  line-height: 1.8;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .access-section {
+    margin: 0 var(--spacing-md, 16px);
+    padding: var(--spacing-lg, 24px);
+    max-width: none;
+  }
+  
+  .access-title {
+    font-size: var(--font-size-lg, 1.25rem);
+    margin-bottom: var(--spacing-lg, 24px);
+  }
+  
+  .access-visual {
+    gap: var(--spacing-md, 16px);
+  }
+  
+  .access-image img,
+  .access-map iframe {
+    height: 250px;
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .access-section {
+    margin: 0 var(--spacing-sm, 8px);
+    padding: var(--spacing-md, 16px);
+  }
+  
+  .access-title {
+    font-size: var(--font-size-lg, 1.25rem);
+    margin-bottom: var(--spacing-md, 16px);
+  }
+  
+  .access-visual {
+    flex-direction: column;
+    gap: var(--spacing-md, 16px);
+    margin-bottom: var(--spacing-lg, 24px);
+    align-items: center;
+  }
+  
+  .access-image,
+  .access-map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .access-image img,
+  .access-map iframe {
+    height: 200px;
+  }
+  
+  .access-item {
+    padding: var(--spacing-sm, 8px) 0;
+  }
+  
+  .access-label {
+    font-size: var(--font-size-sm, 0.9375rem);
+  }
+  
+  .access-value {
+    font-size: 0.875rem;
+  }
+}
+
+/* 極小スマホ対応 */
+@media (max-width: 480px) {
+  .access-section {
+    padding: var(--spacing-sm, 8px);
+  }
+  
+  .access-title {
+    font-size: var(--font-size-md, 1rem);
+  }
+  
+  .access-image img,
+  .access-map iframe {
+    height: 180px;
+  }
+  
+  .access-label,
+  .access-value {
+    font-size: 0.8125rem;
+  }
+}
