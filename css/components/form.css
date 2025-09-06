@@ -1,0 +1,170 @@
+/* フォームセクション */
+.form-section {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow-base, rgba(0, 0, 0, 0.1));
+  padding: var(--spacing-xl, 40px);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* フォームタイトル */
+.form-title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  margin-bottom: var(--spacing-lg, 24px);
+  text-align: center;
+}
+
+/* フォームグループ */
+.form-group {
+  margin-bottom: var(--spacing-lg, 24px);
+}
+
+/* ラベル */
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm, 0.9375rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+/* 必須タグ */
+.form-required {
+  background: var(--color-primary, #2860a0);
+  color: var(--color-white, #fff);
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: var(--spacing-xs, 4px);
+  font-weight: normal;
+}
+
+/* フォーム入力フィールド */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--spacing-sm, 8px) var(--spacing-md, 16px);
+  border: 2px solid var(--color-gray-border, #e0e0e0);
+  border-radius: 8px;
+  font-size: var(--font-size-sm, 0.9375rem);
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary, #2860a0);
+}
+
+/* テキストエリア */
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* 氏名用の半々フォーム */
+.form-name-group {
+  display: flex;
+  gap: var(--spacing-md, 16px);
+}
+
+.form-name-item {
+  flex: 1;
+}
+
+/* プライバシーポリシー関連 */
+.form-privacy {
+  text-align: center;
+  margin-bottom: var(--spacing-lg, 24px);
+}
+
+.form-privacy-text {
+  font-size: var(--font-size-sm, 0.9375rem);
+  color: var(--color-gray-text, #666);
+  margin-bottom: var(--spacing-md, 16px);
+  line-height: 1.6;
+}
+
+.form-privacy-link {
+  color: var(--color-primary, #2860a0);
+  text-decoration: underline;
+}
+
+.form-privacy-link:hover {
+  text-decoration: none;
+}
+
+/* 同意チェックボックス */
+.form-consent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg, 24px);
+}
+
+.form-checkbox {
+  margin-right: var(--spacing-sm, 8px);
+  transform: scale(1.2);
+}
+
+.form-consent-label {
+  font-size: var(--font-size-sm, 0.9375rem);
+  color: var(--color-black, #333);
+  cursor: pointer;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .form-section {
+    margin: 0 var(--spacing-md, 16px);
+    padding: var(--spacing-lg, 24px);
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .form-section {
+    margin: 0 var(--spacing-sm, 8px);
+    padding: var(--spacing-md, 16px);
+  }
+  
+  .form-name-group {
+    flex-direction: column;
+    gap: var(--spacing-sm, 8px);
+  }
+  
+  .form-title {
+    font-size: var(--font-size-md, 1rem);
+    margin-bottom: var(--spacing-md, 16px);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md, 16px);
+  }
+  
+  .form-consent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs, 4px);
+  }
+  
+  .form-checkbox {
+    margin-right: var(--spacing-xs, 4px);
+  }
+}
+
+/* 極小スマホ対応 */
+@media (max-width: 480px) {
+  .form-section {
+    padding: var(--spacing-sm, 8px);
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: var(--spacing-xs, 4px) var(--spacing-sm, 8px);
+  }
+}
