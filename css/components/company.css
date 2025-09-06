@@ -1,0 +1,131 @@
+/* 会社概要ページ用のスタイル */
+
+/* 会社概要セクション */
+.company-section {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow-base, rgba(0, 0, 0, 0.1));
+  padding: var(--spacing-xl, 40px);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 会社概要タイトル */
+.company-title {
+  font-size: var(--font-size-xl, 1.5rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  margin-bottom: var(--spacing-xl, 40px);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 会社情報テーブル */
+.company-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 会社情報の各項目 */
+.company-item {
+  display: flex;
+  padding: var(--spacing-md, 16px) 0;
+  border-bottom: 1px solid var(--color-gray-border, #e0e0e0);
+  align-items: flex-start;
+}
+
+/* 最後の項目の区切り線を削除 */
+.company-item:last-child {
+  border-bottom: none;
+}
+
+/* 項目ラベル（左側） */
+.company-label {
+  font-size: var(--font-size-sm, 0.9375rem);
+  font-weight: bold;
+  color: var(--color-black, #333);
+  min-width: 120px;
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+
+/* 項目内容（右側） */
+.company-value {
+  font-size: var(--font-size-sm, 0.9375rem);
+  color: var(--color-gray-text, #000000);
+  line-height: 1.6;
+  margin-left: var(--spacing-lg, 24px);
+  flex: 1;
+}
+
+/* アドレスなど改行が必要な内容 */
+.company-value br {
+  line-height: 1.8;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .company-section {
+    margin: 0 var(--spacing-md, 16px);
+    padding: var(--spacing-lg, 24px);
+  }
+  
+  .company-title {
+    font-size: var(--font-size-lg, 1.25rem);
+    margin-bottom: var(--spacing-lg, 24px);
+  }
+  
+  .company-label {
+    min-width: 100px;
+  }
+  
+  .company-value {
+    margin-left: var(--spacing-md, 16px);
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .company-section {
+    margin: 0 var(--spacing-sm, 8px);
+    padding: var(--spacing-md, 16px);
+  }
+  
+  .company-title {
+    font-size: var(--font-size-lg, 1.25rem);
+    margin-bottom: var(--spacing-md, 16px);
+  }
+  
+  .company-item {
+    flex-direction: column;
+    padding: var(--spacing-sm, 8px) 0;
+  }
+  
+  .company-label {
+    min-width: auto;
+    margin-bottom: var(--spacing-xs, 4px);
+    font-size: var(--font-size-sm, 0.9375rem);
+  }
+  
+  .company-value {
+    margin-left: 0;
+    font-size: 0.875rem;
+  }
+}
+
+/* 極小スマホ対応 */
+@media (max-width: 480px) {
+  .company-section {
+    padding: var(--spacing-sm, 8px);
+  }
+  
+  .company-title {
+    font-size: var(--font-size-md, 1rem);
+  }
+  
+  .company-label,
+  .company-value {
+    font-size: 0.8125rem;
+  }
+}
