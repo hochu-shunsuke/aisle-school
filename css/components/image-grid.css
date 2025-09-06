@@ -1,0 +1,119 @@
+/* 画像配置システム */
+.image-grid {
+  display: grid;
+  gap: var(--spacing-lg, 24px);
+  width: 100%;
+}
+
+/* 基本配置パターン */
+.image-grid--2x1 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.image-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.image-grid--3x2 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 画像アイテム */
+.image-grid__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--color-shadow-base, rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--color-shadow-primary, rgba(40, 96, 160, 0.15));
+}
+
+.image-grid__image {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  display: block;
+}
+
+/* サイズバリエーション */
+.image-grid--small .image-grid__image {
+  height: 200px;
+}
+
+.image-grid--large .image-grid__image {
+  height: 320px;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .image-grid {
+    gap: var(--spacing-md, 16px);
+  }
+  
+  .image-grid__image {
+    height: 240px;
+  }
+  
+  .image-grid--small .image-grid__image {
+    height: 180px;
+  }
+  
+  .image-grid--large .image-grid__image {
+    height: 280px;
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .image-grid--2x1,
+  .image-grid--2x2,
+  .image-grid--3x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .image-grid {
+    gap: var(--spacing-sm, 8px);
+  }
+  
+  .image-grid__image {
+    height: 180px;
+  }
+  
+  .image-grid--small .image-grid__image {
+    height: 160px;
+  }
+  
+  .image-grid--large .image-grid__image {
+    height: 200px;
+  }
+  
+  .image-grid__caption {
+    padding: var(--spacing-sm, 8px);
+    font-size: 0.75rem;
+  }
+}
+
+/* 極小スマホ対応 */
+@media (max-width: 480px) {
+  .image-grid--2x1,
+  .image-grid--2x2,
+  .image-grid--3x2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .image-grid__image {
+    height: 220px;
+  }
+  
+  .image-grid--small .image-grid__image {
+    height: 180px;
+  }
+  
+  .image-grid--large .image-grid__image {
+    height: 260px;
+  }
+}
