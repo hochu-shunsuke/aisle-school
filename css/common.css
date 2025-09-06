@@ -26,7 +26,7 @@
   --spacing-xl: 40px;
   
   /* フォントサイズ */
-  --font-size-sm: 0.875rem;
+  --font-size-sm: 0.9375rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.125rem;
 }
@@ -198,13 +198,13 @@ html, body {
 .section-detail {
   color: var(--color-black);
   text-align: center;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   line-height: 1.8;
   margin-bottom: var(--spacing-lg);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 /* レスポンシブ対応 */
