@@ -1,0 +1,53 @@
+/*=====================================
+  グローバルなレイアウトとコンポーネント
+=====================================*/
+.l-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.l-section__container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*-------------------------------------
+  パンくずリスト（Breadcrumb）
+-------------------------------------*/
+.c-link {
+  margin-bottom: 30px;
+}
+
+.c-link__btn {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.c-link__btn span {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.c-link__btn img {
+  width: 12px;
+  height: 12px;
+}
+
+/*-------------------------------------
+  ページヘッダー
+-------------------------------------*/
+.l-section__title-area {
+  margin-bottom: 40px;
+}
+
+.l-section__title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
